@@ -17,11 +17,26 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Bienvenido a flutter'),
         ),
-        body: /*const*/ Center(
+        body: const Center(
           //child: Text('Hola a todos'),
-          child: Text(wordPair.asPascalCase),
+          //child: Text(wordPair.asPascalCase),
+          child: RandomWords(),
         ),
       ),
     );
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  const RandomWords({super.key});
+
+  @override
+  State<RandomWords> createState() => _RandomWordsState();
+}
+
+class _RandomWordsState extends State<RandomWords> {
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
   }
 }
